@@ -1,0 +1,19 @@
+using System;
+
+public class HelloWorld
+{
+    // Method for subtraction
+    static int Subtract(int a, int b)
+    {
+        return a - b;
+    }
+
+    static void Main()
+    {
+        int num1 = 15;
+        int num2 = 5;
+
+        // Calling the Subtract method
+        Console.WriteLine("Subtraction: " + Subtract(num1, num2));
+    }
+}
