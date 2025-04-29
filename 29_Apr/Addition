@@ -1,0 +1,19 @@
+using System;
+
+public class HelloWorld
+{
+    // Method for addition 
+    static int Add(int a, int b) 
+    {
+        return a + b;
+    }
+
+    static void Main()
+    {
+        int num1 = 10;
+        int num2 = 20;
+       
+        // Correct line to print the result
+        Console.WriteLine("Addition: " + Add(num1, num2));
+    }
+}
