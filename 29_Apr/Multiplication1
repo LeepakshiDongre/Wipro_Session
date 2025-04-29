@@ -1,0 +1,19 @@
+using System;
+
+public class HelloWorld
+{
+    // Method for multiplication
+    static int Multiply(int a, int b)
+    {
+        return a * b;
+    }
+
+    static void Main()
+    {
+        int num1 = 5;
+        int num2 = 4;
+
+        // Calling the Multiply method
+        Console.WriteLine("Multiplication: " + Multiply(num1, num2));
+    }
+}
