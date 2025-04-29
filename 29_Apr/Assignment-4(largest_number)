@@ -1,0 +1,28 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main()
+    {
+        int a = 10;
+        int b = 25;
+        int c = 15;
+
+        int largest;
+
+        if (a > b && a > c)
+        {
+            largest = a;
+        }
+        else if (b > c)
+        {
+            largest = b;
+        }
+        else
+        {
+            largest = c;
+        }
+
+        Console.WriteLine("The largest number is: " + largest);
+    }
+}
