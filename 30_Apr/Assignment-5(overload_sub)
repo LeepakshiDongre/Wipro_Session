@@ -1,0 +1,22 @@
+using System;
+
+class Program
+{
+    // Method to subtract two integers
+    static int Subtract(int a, int b)
+    {
+        return a - b;
+    }
+
+    // Method to subtract two double values
+    static double Subtract(double a, double b)
+    {
+        return a - b;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Int Subtract: " + Subtract(7, 4));       // Output: 3
+        Console.WriteLine("Double Subtract: " + Subtract(7.5, 2.2)); // Output: 5.3
+    }
+}
