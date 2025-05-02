@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static int CountZeros(int number)
+    {
+        if (number == 0)
+            return 0;
+
+        int lastDigit = number % 10;
+        int count = (lastDigit == 0) ? 1 : 0;
+
+        return count + CountZeros(number / 10);
+    }
+
+    static void Main()
+    {
+        int num = 2004350510;
+        Console.WriteLine("Number of zeros in " + num + ": " + CountZeros(num));
+    }
+}
