@@ -1,3 +1,3 @@
-UPDATE Students
-SET Grade = 'A+'
-WHERE ID = 2;
+UPDATE Employees
+SET Salary = 75000.00
+WHERE EmployeesID = 2;

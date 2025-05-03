@@ -1,4 +1,4 @@
-INSERT INTO Employees (ID, FirstName, LastName, Department, Salary, HireDate)
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Department, Salary, HireDate)
 VALUES 
 (1, 'Ajay', 'Kumar', 'HR', 50000.00, '2022-03-15'),
 (2, 'Sneha', 'Sahu', 'IT', 55000.00, '2021-06-09'),
