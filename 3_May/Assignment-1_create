@@ -1,6 +1,8 @@
 CREATE TABLE Students (
-    ID INT PRIMARY KEY,
-	Name VARCHAR(50), 
-	Age INT,
-	Grade VARCHAR(10)
+    Employee ID INT PRIMARY KEY,
+	FirstName VARCHAR(50),
+	LastName VARCHAR(50),
+	Department VARCHAR(50),
+	Salary DECIMAL(10,2),
+	HireDate DATE
 );
