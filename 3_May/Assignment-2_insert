@@ -1,6 +1,5 @@
-INSERT INTO Students (ID, Name, Age, Grade)
+INSERT INTO Employees (ID, FirstName, LastName, Department, Salary, HireDate)
 VALUES 
-(1, 'Ajay', 15, 'A'),
-(2, 'Sneha', 17, 'C'),
-(3, 'Suraj', 16, 'B'),
-(4, 'Shikha', 18, 'A');
+(1, 'Ajay', 'Kumar', 'HR', 50000.00, '2022-03-15'),
+(2, 'Sneha', 'Sahu', 'IT', 55000.00, '2021-06-09'),
+(3, 'Vijay', 'Sharma', 'Sales', 65000.00, '2020-11-30');
