@@ -1,0 +1,6 @@
+INSERT INTO Students (ID, Name, Age, Grade)
+VALUES 
+(1, 'Ajay', 15, 'A'),
+(2, 'Sneha', 17, 'C'),
+(3, 'Suraj', 16, 'B'),
+(4, 'Shikha', 18, 'A');
