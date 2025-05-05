@@ -1,0 +1,8 @@
+SELECT 
+   ProductName,
+   Price,
+   'HigherEndPrduct' AS Category
+FROM
+   Products
+WHERE
+    Price > 60000;
