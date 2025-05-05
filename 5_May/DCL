@@ -1,0 +1,9 @@
+//DCL
+//DCL is used  to control access to data in a  database.
+
+
+//1.CREATE USER
+CREATE USER test_user FOR LOGIN test_login;
+
+//--first, ensure the login exists. If not:
+CREATE LOGIN test_login WITH PASSWORD = 'StrongP@ss123';

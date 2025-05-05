@@ -1,0 +1,39 @@
+//WHAT ARE WINDOW Functions
+Window Functions perform calculations across a set of rows (a window) without collapsing rows like GROUP BY
+
+//1.OVER() Clause Basics
+
+SELECT 
+   Name,
+   Department,
+   Salary,
+   AVG(Salary) OVER() AS AvgSalary   //--calculates average over all rows
+FROM Employees;
+
+//2. Partition BY (Group-Wise Analysis)
+
+SELECT 
+   Name,
+   Department,
+   Salary,
+   AVG(Salary) OVER(PARTITION BY Department) AS DeptAvgSalary
+FROM Employees;
+
+
+//3.Ranking Functions
+//ROW_NUMBER()
+
+SELECT
+    Name,
+	Department,
+	Salary,
+	ROW_NUMBER() OVER(PARTITION BY Department ORDER BY Salary DESC) AS RowNum
+FROM Employees;
+
+//Rank()
+
+SELECT 
+    Name,
+    Salary,
+    RANK() OVER(ORDER BY Salary DESC) AS RankBySalary
+FROM Employees;
