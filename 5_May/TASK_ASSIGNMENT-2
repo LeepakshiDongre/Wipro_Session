@@ -1,0 +1,14 @@
+CREATE PROCEDURE GetProductRevenue
+    @ProductID INT
+AS
+BEGIN
+    SELECT
+        p.ProductName,
+	    SUM(o.Quantity * p.Price) AS TotalRevenue
+	FROM Orders o
+	INNER JOIN Products p ON o.ProductID = p.ProductID
+	WHERE o.ProductID = @ProductID
+	GROUP BY p.ProductName;
+END;
+
+EXEC GetProductRevenue @ProductID = 1;
