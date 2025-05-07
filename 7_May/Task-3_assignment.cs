@@ -1,6 +1,5 @@
 //PRINT DUPLICATE WORDS IN A SENTENCE
 using System;
-using System.Collections.Generic;
 
 class Program
 {
@@ -8,21 +7,47 @@ class Program
     {
         string sentence = "this is a test and this test is fun";
         string[] words = sentence.Split(' ');
-        Dictionary<string, int> wordCount = new Dictionary<string, int>();
+        string[] uniqueWords = new string[words.Length];
+        int[] counts = new int[words.Length];
+        int uniqueCount = 0;
 
-        foreach (string word in words)
+        for (int i = 0; i < words.Length; i++)
         {
-            if (wordCount.ContainsKey(word))
-                wordCount[word]++;
+            int index = -1;
+            for (int j = 0; j < uniqueCount; j++)
+            {
+                if (uniqueWords[j] == words[i])
+                {
+                    index = j;
+                    break;
+                }
+            }
+
+            if (index != -1)
+            {
+                counts[index]++;
+            }
             else
-                wordCount[word] = 1;
+            {
+                uniqueWords[uniqueCount] = words[i];
+                counts[uniqueCount] = 1;
+                uniqueCount++;
+            }
         }
 
         Console.Write("Duplicate words: ");
-        foreach (var pair in wordCount)
+        bool first = true;
+        for (int i = 0; i < uniqueCount; i++)
         {
-            if (pair.Value > 1)
-                Console.Write(pair.Key + ", ");
+            if (counts[i] > 1)
+            {
+                if (!first) Console.Write(", ");
+                Console.Write(uniqueWords[i]);
+                first = false;
+            }
         }
+
+        Console.WriteLine();
     }
 }
+
