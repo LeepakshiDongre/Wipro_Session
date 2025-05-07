@@ -1,25 +1,43 @@
 //PRINT THE FREQUENCY OF EACH ELEMENT IN A ARRAY
 using System;
-using System.Collections.Generic;
 
 class Program
 {
     static void Main()
     {
         int[] arr = { 1, 2, 2, 3, 4, 4, 4 };
-        Dictionary<int, int> freq = new Dictionary<int, int>();
+        int[] values = new int[arr.Length];
+        int[] counts = new int[arr.Length];
+        int uniqueCount = 0;
 
-        foreach (int num in arr)
+        for (int i = 0; i < arr.Length; i++)
         {
-            if (freq.ContainsKey(num))
-                freq[num]++;
+            int index = -1;
+            for (int j = 0; j < uniqueCount; j++)
+            {
+                if (values[j] == arr[i])
+                {
+                    index = j;
+                    break;
+                }
+            }
+
+            if (index != -1)
+            {
+                counts[index]++;
+            }
             else
-                freq[num] = 1;
+            {
+                values[uniqueCount] = arr[i];
+                counts[uniqueCount] = 1;
+                uniqueCount++;
+            }
         }
-        foreach (var pair in freq)
+
+        for (int i = 0; i < uniqueCount; i++)
         {
-       
-            Console.WriteLine($"{pair.Key} appears {pair.Value} time(s)");
+            Console.WriteLine($"{values[i]} appears {counts[i]} time(s)");
         }
-      
     }
+}
+
