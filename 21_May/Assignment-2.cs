@@ -1,24 +1,38 @@
 //GREEDY ALGORITHM - COIN CHANGE
 using System;
+using System.Collections.Generic;
 
-class TowerOfHanoi
+class CoinChange
 {
-    static void Solve(int n, char source, char destination, char auxiliary)
+    static void Solve(int amount, int[] denominations)
     {
-        if (n == 1)
-        {
-            Console.WriteLine($"Move disk 1 from {source} to {destination}");
-            return;
-        }
-        Solve(n - 1, source, auxiliary, destination);
-        Console.WriteLine($"Move disk {n} from {source} to {destination}");
-        Solve(n - 1, auxiliary, destination, source);
+        Array.Sort(denominations);
+        Array.Reverse(denominations); //For greedy selection
 
+        List<int> coinsUsed = new List<int>();
+
+        foreach (int coin in denominations)
+        {
+            while (amount >= coin)
+            {
+                amount -= coin;
+                coinsUsed.Add(coin);
+            }
+        }
+
+        Console.WriteLine("Coins used:");
+        foreach (int coin in coinsUsed)
+        {
+            Console.WriteLine(coin + " ");
+        }
+        Console.WriteLine($"\nTotal coins: {coinsUsed.Count}");
     }
 
     static void Main()
     {
-        int n = 3;
-        Solve(n, 'A', 'C', 'B');
+        int[] denominations = { 1, 2, 5, 10, 20, 50, 100, 200, 500 };
+        int amount = 880;
+        Solve(amount, denominations);
+
     }
 }

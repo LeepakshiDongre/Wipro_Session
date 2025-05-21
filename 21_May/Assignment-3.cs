@@ -1,37 +1,34 @@
+//HASHING - FIRST NON-REAPEATING CHARACTER
 using System;
 using System.Collections.Generic;
 
-class FirstUniqueChar
+class Program
 {
-    static char? FindFirstUnique(string input)
+    static void Main(string[] args)
     {
-        Dictionary<char, int> freq = new Dictionary<char, int>();
+        string input = "Ramya";
 
+        Dictionary<char, int> charcount = new Dictionary<char, int>();
+
+        // Step 1: Count the frequency of each character
         foreach (char c in input)
         {
-            if (freq.ContainsKey(c))
-                freq[c]++;
+            if (charcount.ContainsKey(c))
+                charcount[c]++;
             else
-                freq[c] = 1;
+                charcount[c] = 1;
         }
 
+        // Step 2: Find the first character with frequency 1
         foreach (char c in input)
         {
-            if (freq[c] == 1)
-                return c;
+            if (charcount[c] == 1)
+            {
+                Console.WriteLine("First non repeating character: " + c);
+                return;
+            }
         }
 
-        return null;
-    }
-
-    static void Main()
-    {
-        string input = "swiss";
-        char? result = FindFirstUnique(input);
-
-        if (result.HasValue)
-            Console.WriteLine("First non-repeating character: " + result);
-        else
-            Console.WriteLine("No non-repeating character found.");
+        Console.WriteLine("No non repeating character found");
     }
 }
