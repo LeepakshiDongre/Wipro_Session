@@ -1,0 +1,250 @@
+using System;
+using System.Threading;
+
+
+class Program
+{
+    static void PrintNumbers()
+    {
+        for (int i = 1; i <=5; i++)
+        {
+            Console.WriteLine($"Thread: {i}");
+            Thread.Sleep(500);  //pause for 0.5 seconds
+
+        }
+    }
+
+    static void Main()
+    {
+        Thread myThread = new Thread(PrintNumbers);   //Create  a thread
+        myThread.Start();                             // Start the thread
+
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine($"Main: {i}");
+            Thread.Sleep(500);
+        }
+    }
+}
+
+
+
+
+
+
+// 
+
+using System;
+using System.Threading;
+
+
+class Program
+{
+    static void PrintNumbers()
+    {
+        for (int i = 1; i <=5; i++)
+        {
+            Console.WriteLine($"Thread: {i}");
+            Thread.Sleep(500);  //pause for 0.5 seconds
+
+        }
+    }
+
+    static void Main()
+    {
+        Thread myThread = new Thread(PrintNumbers);   //Create  a thread
+        myThread.Start();                             // Start the thread
+
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine($"Main: {i}");
+            Thread.Sleep(500);
+        }
+    }
+}
+
+
+//ADDING 
+using System;
+using System.Threading;
+
+
+class Program
+{
+    static void PrintNumbers()
+    {
+        for (int i = 1; i <=5; i++)
+        {
+            Console.WriteLine($"Thread: {i}");
+            Thread.Sleep(500);  //pause for 0.5 seconds
+
+        }
+    }
+
+    static void Main()
+    {
+        Thread myThread = new Thread(PrintNumbers);   //Create  a thread
+        myThread.Start();                             // Start the thread
+
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine($"Main: {i}");
+            Thread.Sleep(500);
+        }
+    }
+}
+
+
+//JOIN
+
+using System;
+using System.Threading;
+
+class Program
+{
+    static void DoWork(string name)
+    {
+        for (int i = 1; i <=1; i++)
+        {
+            Console.WriteLine($"Thread {name} - Step {i}");
+            Thread.Sleep(500); // Simulate work
+        }
+
+        Console.WriteLine($"Thraed {name} finished.");
+    }
+
+    static void Main()
+    {
+        //Create multiple threads
+        Thread t1 = new Thread(() => DoWork("A"));
+        Thread t2 = new Thread(() => DoWork("B"));
+        Thread t3 = new Thread(() => DoWork("C"));
+
+        t1.Start();
+        t1.Join();
+
+        t2.Start();
+        t2.Join();
+
+        t3.Start();
+        t3.Join();
+
+        Console.WriteLine("All threads completed. Main thread ends.");
+    }
+}
+
+
+//
+using System;
+using System.Threading;
+
+class Program
+{
+    static void DoWork(string name)
+    {
+        for (int i = 1; i <=1; i++)
+        {
+            Console.WriteLine($"Thread {name} - Step {i}");
+            Thread.Sleep(500); // Simulate work
+        }
+
+        Console.WriteLine($"Thraed {name} finished.");
+    }
+
+    static void Main()
+    {
+        //Create multiple threads
+        Thread t1 = new Thread(() => DoWork("A"));
+        Thread t2 = new Thread(() => DoWork("B"));
+        Thread t3 = new Thread(() => DoWork("C"));
+
+        t1.Start();
+        t1.Join();
+
+        t2.Start();
+        t2.Join();
+
+        t3.Start();
+        t3.Join();
+
+        Console.WriteLine("All threads completed. Main thread ends.");
+    }
+}
+
+
+
+ //
+ using System;
+using System.Threading;
+
+class Program
+{
+    static void DoWork(object state)
+    {
+        Console.WriteLine($"ThreadPool Task Started - {state}");
+        Thread.Sleep( 1000 );  //Simulate work
+        Console.WriteLine($"ThreadPool Task Finished - {state}");
+    }
+
+    static void Main()
+    {
+        for ( int i = 1; i <= 5; i++)
+        {
+            ThreadPool.QueueUserWorkItem(DoWork, $"Task {i}");
+
+        }
+
+        Console.WriteLine("Main thread continues...");
+        Thread.Sleep(3000); // Wait for background tasks to complete
+        Console.WriteLine("Main thread ends.");
+    }
+}
+
+
+//Life Cycle Working in Threads
+
+using System;
+using System.Threading;
+class Program
+{
+    static bool pause = false;
+    static bool stop = false;
+    static void DoWork()
+    {
+        while (!stop)
+        {
+            if (pause)
+            {
+                Console.WriteLine("Thread paused...");
+                Thread.Sleep(500);
+                continue;
+            }
+            Console.WriteLine("Thread is working...");
+            Thread.Sleep(1000); // Simulated work
+        }
+        Console.WriteLine("Thread has stopped ");
+    }
+    static void Main()
+    {
+        Thread Worker = new Thread(DoWork);
+        Console.WriteLine("Initial Thread State: " + Worker.ThreadState);
+        Worker.Start();
+
+        Thread.Sleep(3000);
+        pause = true;
+        Console.WriteLine("Paused Thread State: " + Worker.ThreadState);
+
+
+        Thread.Sleep(3000);
+        pause = false;
+        Console.WriteLine("Resuming work...");
+
+        Thread.Sleep(3000);
+        pause = true;
+        Console.WriteLine("Stopping thread...");
+
+        Worker.Join(); // Wait for thread to finish
+        Console.WriteLine("Final Thread State: " + Worker.ThreadState);
+    }
+}
+       
